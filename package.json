@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~6.0.0",
+    "@fitbit/sdk-cli": "^1.7.3"
+  },
+  "fitbit": {
+    "appUUID": "5a3a3d68-15b0-4c5c-9757-a4c8f8022188",
+    "appType": "clockface",
+    "appDisplayName": "dolphins",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "access_user_profile"
+    ],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "dolphins"
+      }
+    },
+    "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "fitbit-build"
+  }
+}
