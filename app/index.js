@@ -2,13 +2,12 @@ import clock from "clock";
 import * as document from "document";
 import {battery} from "power";
 import {today} from "user-activity";
-
-// Tick every second
-clock.granularity = "seconds";
+import {days, monthsShort} from "./lib/locales/en";
+import {display} from "display";
 
 const clockLabel = document.getElementById("clock-label");
 const dateLabel = document.getElementById("date-label");
-const options = {weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
@@ -36,9 +35,13 @@ function secondsToAngle(seconds) {
     return (360 / 60) * seconds;
 }
 
+
+// Tick every second
+clock.granularity = display.on ? "seconds" : "minutes";
+
 // Rotate the hands every tick
-function updateClock() {
-    let todayDate = new Date();
+function updateClock(event) {
+    let todayDate = event.date;
     let hours24 = todayDate.getHours();
     let hours = hours24 % 12;
     let mins = todayDate.getMinutes();
@@ -55,7 +58,7 @@ function updateClock() {
         + ":"
         + String("00" + secs).slice(-2);
 
-    dateLabel.text = todayDate.toDateString('en-US', options);
+    dateLabel.text = days[todayDate.getDay()]  + " " + monthsShort[todayDate.getMonth()] + " " + todayDate.getDate() + ", " + todayDate.getFullYear();
     txtPower.text = Math.floor(battery.chargeLevel) + "%";
 
     let stepCount = (today.adjusted.steps || 0);
@@ -64,3 +67,11 @@ function updateClock() {
 
 // Update the clock every tick event
 clock.addEventListener("tick", updateClock);
+
+display.addEventListener("change", () => {
+    if (display.on) {
+        clock.granularity = "seconds";
+    } else {
+        clock.granularity = "minutes";
+    }
+});
