@@ -1,10 +1,10 @@
 <svg viewport-fill="fb-black">
     <text id="clock-label" x="50%" y="85%+15"
-          fill="gray" font-size="64" font-family="System-Regular"
+          fill="#93E9BE" font-size="64" font-family="System-Regular"
           text-anchor="middle" text-length="20">00:00:00
     </text>
     <text id="date-label" x="50%" y="5%+15"
-          fill="gray" font-size="40" font-family="System-Regular"
+          fill="#AEB7BC" font-size="26" font-family="System-Regular"
           text-anchor="middle" text-length="20">Today</text>
     <svg class="stats">
         <image href="images/batt.png" class="image"/>
@@ -20,15 +20,11 @@
         <circle cx="0" cy="-90" r="12" fill="#303030"/>
     </g>
     <g id="mins" pointer-events="visible" transform="translate(50%,50%)">
-        <rect x="$-3" y="-110" width="6" height="110" fill="#a0a0a0"/>
-        <circle cx="0" cy="-90" r="10" fill="#a0a0a0"/>
+        <rect x="$-3" y="-110" width="6" height="110" fill="#AEB7BC"/>
+        <circle cx="0" cy="-90" r="10" fill="#AEB7BC"/>
     </g>
     <g id="hours" pointer-events="visible" transform="translate(50%,50%)">
-        <gradientRect x="$-4" y="-75" width="8" height="75"
-                      gradient-type="linear"
-                      gradient-x1="0" gradient-y1="0"
-                      gradient-x2="8" gradient-y2="75"
-                      gradient-color1="cyan" gradient-color2="gray"/>
+        <rect x="$-4" y="-75" width="8" height="75" fill="#93E9BE"/>
     </g>
     <g id="secs" pointer-events="visible" transform="translate(50%,50%)">
         <rect x="$-2" y="-120" width="4" height="120" fill="#ff6060"/>

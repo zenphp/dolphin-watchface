@@ -19,7 +19,7 @@
 
 .stats image {
   y: 15;
-  fill: #FFFFFF;
+  fill: #AEB7BC;
   width: 24;
   height: 24;
 }
@@ -28,7 +28,7 @@
   font-family: SevilleSharp;
   font-size: 30;
   text-length: 16;
-  fill: #FFFFFF;
+  fill: #AEB7BC;
 }
 
 .stat-left {
